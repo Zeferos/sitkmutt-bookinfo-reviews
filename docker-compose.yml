@@ -1,7 +1,10 @@
 services:
-  details:
+  reviews:
     build: .
     image: ghcr.io/zeferos/bookinfo-reviews:dev
     container_name: reviews
     ports: 
       - "8082:8082"
+    environment:
+      ENABLE_RATINGS: "true"
+      RATINGS_SERVICE: http://ratings:8080/
